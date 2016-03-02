@@ -1,10 +1,9 @@
 (function () {
     var app = angular.module('guessWord', []);
-
     app.controller('wordController', ['$http', function ($http) {
         var vm = this;
         vm.word = '';
-        vm.answer = {};
+        vm.answer = '';
         vm.logs = {};
         vm.makeRequest = function (){
             $http({

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="guessWord">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Hello!</title>
     <title>PARSER | Welcome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+<body ng-app="guessWord">
 <script src="lib/jquery-1.12.0.js"></script>
 <script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-<script src="lib/angular.js"></script>
+<script src="lib/angular.min.js"></script>
 <script src="js/app.js"></script>
 <div class="container-fluid jumbotron">
     <header class="container text-center">
@@ -22,11 +22,15 @@
     <form ng-controller="wordController as wordCtrl" name="key-word" novalidate>
         <div class="form-group">
             <h3 class="text-center">Enter your word</h3>
-            <input placeholder="Start to typing your word, and maybe you were right!" ng-model="wordCtrl.word" type="text" id="key-word" class="form-control">
+            <input placeholder="Start to typing your word, and maybe you were right!" ng-model="wordCtrl.word"
+                   type="text" id="key-word" class="form-control">
         </div>
-        <button ng-click="wordCtrl.makeRequest(wordCtrl.word)" type="button" class="btn btn-block btn-lg btn-success">Check!</button>
-        <p>{{wordCtrl.word}}</p>
-        <p>This is the answer: {{wordCtrl.answer}}</p>
+        <button ng-click="wordCtrl.makeRequest(wordCtrl.word)" type="button" class="btn btn-block btn-lg btn-primary">
+            Check!
+        </button>
+        <h3 class="text-center">You have entered: {{wordCtrl.word}}</h3>
+        <div class="text-center alert-success jumbotron" ng-show="wordCtrl.answer"><h3>You are correct!</h3></div>
+        <div class="text-center alert-danger" ng-hide="wordCtrl.answer"><h3>You are wrong :(</h3></div>
     </form>
 </div>
 
