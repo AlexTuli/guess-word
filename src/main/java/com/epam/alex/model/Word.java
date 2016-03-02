@@ -8,12 +8,8 @@ import javax.swing.*;
  *
  * @author Alexander Bocharnikov
  */
-@Entity
-@Table(name = "word")
 public class Word {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String word;
 
