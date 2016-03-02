@@ -24,8 +24,9 @@
             <h3 class="text-center">Enter your word</h3>
             <input placeholder="Start to typing your word, and maybe you were right!" ng-model="wordCtrl.word" type="text" id="key-word" class="form-control">
         </div>
-        <button type="button" class="btn btn-block btn-lg btn-success">Check!</button>
-
+        <button ng-click="wordCtrl.makeRequest(wordCtrl.word)" type="button" class="btn btn-block btn-lg btn-success">Check!</button>
+        <p>{{wordCtrl.word}}</p>
+        <p>This is the answer: {{wordCtrl.answer}}</p>
     </form>
 </div>
 

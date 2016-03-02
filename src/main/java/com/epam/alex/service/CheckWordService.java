@@ -2,6 +2,7 @@ package com.epam.alex.service;
 
 import com.epam.alex.io.Reader;
 import com.epam.alex.parser.Parser;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -20,6 +21,7 @@ import java.util.Collection;
 @PropertySource(value = {"classpath:application.properties"})
 public class CheckWordService implements com.epam.alex.service.Service {
 
+    private static final Logger log = Logger.getLogger(CheckWordService.class);
     public static final String FILE_URL = "file.url";
     @Autowired
     private Parser parser;
@@ -37,6 +39,7 @@ public class CheckWordService implements com.epam.alex.service.Service {
         Boolean result = false;
         if (args.length > 0) {
             String str = (String) args[0];
+            log.debug("Word is " + str);
             result = strings.contains(str);
         }
         return result;
