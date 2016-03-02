@@ -20,8 +20,9 @@ import java.util.List;
 public class ArrayListParser implements Parser {
 
     private static final Logger log = Logger.getLogger(ArrayListParser.class);
-    public static final char SPACE_CHAR = ' ';
     public static final char BREAK_LIKE_CHAR = '\n';
+    public static final String UTF_8 = "UTF-8";
+    public static final String ISO_8859_1 = "ISO-8859-1";
 
     @Override
     public Collection<String> parse(InputStream inputStream) {
@@ -32,7 +33,8 @@ public class ArrayListParser implements Parser {
             while ((read = inputStream.read()) != -1) {
                 char charFromIS = (char) read;
                 if (charFromIS == BREAK_LIKE_CHAR) {
-                    result.add(builder.toString().trim());
+                    byte bytes[] = builder.toString().trim().getBytes(ISO_8859_1);
+                    result.add(new String(bytes, UTF_8).toLowerCase());
                     log.debug(builder);
                     builder = new StringBuilder();
                 } else {
@@ -40,7 +42,8 @@ public class ArrayListParser implements Parser {
                 }
             }
             log.debug(builder);
-            result.add(builder.toString());
+            byte bytes[] = builder.toString().trim().getBytes(ISO_8859_1);
+            result.add(new String(bytes, UTF_8).toLowerCase());
         } catch (IOException e) {
             log.error("Can't parse file, IOException");
             throw new ParserException(e);

@@ -40,7 +40,7 @@ public class CheckWordService implements com.epam.alex.service.Service {
         if (args.length > 0) {
             String str = (String) args[0];
             log.debug("Word is " + str);
-            result = strings.contains(str);
+            result = strings.contains(str.toLowerCase());
         }
         return result;
     }

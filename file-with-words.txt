@@ -1,3 +1,5 @@
 hello
+привет
 this is test
 blah-blah-blah
+лЮбОвЬ
