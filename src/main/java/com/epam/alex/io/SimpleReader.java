@@ -2,6 +2,7 @@ package com.epam.alex.io;
 
 import com.epam.alex.exceptions.ReaderException;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -11,6 +12,7 @@ import java.nio.file.Files;
  *
  * @author Alexander Bocharnikov
  */
+@Component
 public class SimpleReader implements Reader {
 
     private static final Logger log = Logger.getLogger(SimpleReader.class);
