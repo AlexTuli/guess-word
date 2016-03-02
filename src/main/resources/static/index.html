@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="guessWord">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello!</title>
+    <title>PARSER | Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+<script src="lib/jquery-1.12.0.js"></script>
+<script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<script src="lib/angular.js"></script>
+<script src="js/app.js"></script>
+<div class="container-fluid jumbotron">
+    <header class="container text-center">
+        <h2>Hello!</h2>
+    </header>
+</div>
+<div class="container">
+    <form ng-controller="wordController as wordCtrl" name="key-word" novalidate>
+        <div class="form-group">
+            <h3 class="text-center">Enter your word</h3>
+            <input placeholder="Start to typing your word, and maybe you were right!" ng-model="wordCtrl.word" type="text" id="key-word" class="form-control">
+        </div>
+        <button type="button" class="btn btn-block btn-lg btn-success">Check!</button>
+
+    </form>
+</div>
+
+</body>
+</html>
