@@ -32,11 +32,14 @@ public class ArrayListParser implements Parser {
             while ((read = inputStream.read()) != -1) {
                 char charFromIS = (char) read;
                 if (charFromIS == BREAK_LIKE_CHAR || charFromIS == SPACE_CHAR) {
-                    result.add(builder.toString());
+                    result.add(builder.toString().trim());
+                    log.debug(builder);
                     builder = new StringBuilder();
+                } else {
+                    builder.append(charFromIS);
                 }
-                builder.append(charFromIS);
             }
+            log.debug(builder);
             result.add(builder.toString());
         } catch (IOException e) {
             log.error("Can't parse file, IOException");

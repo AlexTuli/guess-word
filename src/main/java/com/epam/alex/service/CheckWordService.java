@@ -23,13 +23,11 @@ public class CheckWordService implements com.epam.alex.service.Service {
     @Autowired
     private Reader reader;
 
-    private static Collection<String> strings;
-
 
     @Override
     public Boolean execute(Object... args) {
         InputStream inputStream = reader.readFile(PATH);
-        strings = parser.parse(inputStream);
+        Collection<String> strings = parser.parse(inputStream);
         Boolean result = false;
         if (args.length > 0) {
             String str = (String) args[0];
