@@ -31,7 +31,7 @@ public class ArrayListParser implements Parser {
             int read;
             while ((read = inputStream.read()) != -1) {
                 char charFromIS = (char) read;
-                if (charFromIS == BREAK_LIKE_CHAR || charFromIS == SPACE_CHAR) {
+                if (charFromIS == BREAK_LIKE_CHAR) {
                     result.add(builder.toString().trim());
                     log.debug(builder);
                     builder = new StringBuilder();

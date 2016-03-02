@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WordController {
 
+    private static final String SPACE_REGEX = "\\s+";
+    private static final String SPACE_STRING = " ";
     @Autowired
     private Service<Boolean> checkWordService;
 
@@ -25,6 +27,7 @@ public class WordController {
         if (word.isEmpty()) {
             return false;
         }
-        return checkWordService.execute(word.trim());
+        //Here we also remove extra white spaces for just one
+        return checkWordService.execute(word.trim().replaceAll(SPACE_REGEX, SPACE_STRING));
     }
 }
