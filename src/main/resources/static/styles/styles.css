@@ -1,9 +1,13 @@
+
+.container {
+  height: 100%;
+}
+
 footer {
   margin: 25px 0;
   padding: 20px;
   color: #000;
   background-color: #cecece;
   font-size: 24px;
-  border-top: 5px solid #c9302c; }
-
-/*# sourceMappingURL=styles.css.map */
+  border-top: 5px solid #c9302c;
+}

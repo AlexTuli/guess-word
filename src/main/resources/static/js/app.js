@@ -1,11 +1,13 @@
 (function () {
-    var app = angular.module('guessWord', []);
+    var app = angular.module('guessWord', [ ]);
     app.controller('wordController', ['$http', function ($http) {
         var vm = this;
+        vm.isSended = false;
         vm.word = '';
         vm.answer = '';
         vm.logs = {};
         vm.makeRequest = function (){
+            vm.isSended = true;
             $http({
                 method: "GET",
                 url: "/check?word=" + vm.word
