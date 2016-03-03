@@ -43,31 +43,32 @@
 <script src="lib/angular.min.js" ng:autobind></script>
 <script src="js/app.js"></script>
 <div>
-<div class="container-fluid jumbotron">
-    <header class="container text-center">
-        <h2>Dear Ladies, here is the final part of our quest</h2>
-    </header>
-</div>
-<div class="container">
-    <form ng-controller="wordController as wordCtrl" name="key-word" novalidate>
-        <div class="form-group">
-            <h3 class="text-center">Please enter the word that you can form from the obtained letters</h3>
-            <input placeholder="Start to typing your word, and maybe you were right!" ng-model="wordCtrl.word"
-                   type="text" id="key-word" class="form-control">
-        </div>
-        <button ng-click="wordCtrl.makeRequest(wordCtrl.word)" type="button" class="btn btn-block btn-lg btn-primary">
-            Check!
-        </button>
-        <h3 class="text-center">You have entered: {{wordCtrl.word}}</h3>
-        <div ng-show="wordCtrl.isSended">
-            <div class="text-center alert-success jumbotron" ng-show="wordCtrl.answer"><h3>You are correct!</h3></div>
-            <div class="text-center alert-danger" ng-hide="wordCtrl.answer"><h3>You are wrong :(</h3></div>
-        </div>
-    </form>
-</div>
-<footer class="container-fluid text-center">
-    Copyright &copy; EPAM 2016. All rights reserved.
-</footer>
+    <div class="container-fluid jumbotron">
+        <header class="container text-center">
+            <h2>Dear Ladies, here is the final part of our quest</h2>
+        </header>
+    </div>
+    <div class="container">
+        <form ng-controller="wordController as wordCtrl" name="key-word" novalidate>
+            <div class="form-group">
+                <h3 class="text-center">Please enter the word that you can form from the obtained letters</h3>
+                <input placeholder="Start to typing your word, and maybe you were right!" ng-model="wordCtrl.word"
+                       type="text" id="key-word" class="form-control">
+            </div>
+            <input ng-click="wordCtrl.makeRequest(wordCtrl.word)" type="submit" class="btn btn-block btn-lg btn-primary"
+                   value="Check!">
+
+            <h3 class="text-center">You have entered: {{wordCtrl.word}}</h3>
+            <div ng-show="wordCtrl.isSended">
+                <div class="text-center alert-success jumbotron" ng-show="wordCtrl.answer"><h3>You are correct!</h3>
+                </div>
+                <div class="text-center alert-danger" ng-hide="wordCtrl.answer"><h3>You are wrong :(</h3></div>
+            </div>
+        </form>
+    </div>
+    <footer class="container-fluid text-center">
+        Copyright &copy; EPAM 2016. All rights reserved.
+    </footer>
 </div>
 </body>
 </html>
