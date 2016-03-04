@@ -7,7 +7,6 @@
         vm.answer = '';
         vm.logs = {};
         vm.makeRequest = function (){
-            vm.isSended = true;
             $http({
                 method: "GET",
                 url: "/check?word=" + vm.word
@@ -17,6 +16,7 @@
                 vm.answer = false;
                 vm.logs = response.statusText;
             });
+            vm.isSended = true;
         };
 
     }]);
